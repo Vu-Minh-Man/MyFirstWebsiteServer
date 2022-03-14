@@ -1,5 +1,3 @@
-import "dotenv/config";
-
 export default {
   port: process.env.PORT || 3000,
   dbDiscussion: process.env.DB + "/discussion",
