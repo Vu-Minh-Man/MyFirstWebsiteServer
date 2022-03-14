@@ -2,7 +2,8 @@
 
 import express from "express";
 import cors from "cors";
-// import helmet from 'helmet';
+import helmet from "helmet";
+import compression from "compression";
 
 //import corsEnabled from "../middleware/corsEnabled.js";
 import userApi from "../routes/userApi.js";
@@ -26,5 +27,6 @@ export default function (app, logger) {
   app.use("/api/discussion/topics", topicApi);
   app.use("/api/discussion/topics", postApi);
   app.use(apiErrorLogger(logger));
-  //app.use(helmet());
+  app.use(helmet());
+  app.use(compression());
 }
