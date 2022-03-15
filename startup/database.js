@@ -5,7 +5,6 @@ export default function (logger) {
   mongoose
     .connect(config.db, {
       useNewUrlParser: true,
-      useCreateIndex: true,
       useUnifiedTopology: true,
     })
     .then(() => logger.info(`Connected to ${config.db}...`))

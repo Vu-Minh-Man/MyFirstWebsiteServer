@@ -1,10 +1,12 @@
 const dbCluster =
+  process.env.MONGODB_URI ||
   "mongodb+srv://man:EhOpohrI0hAGcnR5@cluster0.kjz7v.mongodb.net";
-// process.env.MONGODB_URI
+
+const dbParams = "?retryWrites=true&w=majority";
 
 export default {
   port: process.env.PORT || 8080,
-  db: dbCluster + "/myFirstWebsite?retryWrites=true&w=majority",
-  dbLogger: process.env.MONGODB_URI + "/errors?retryWrites=true&w=majority",
+  db: dbCluster + "/myFirstWebsite" + dbParams,
+  dbLogger: dbCluster + "/errors" + dbParams,
   secretKey: process.env.SECRETKEY || "jwtkey",
 };
