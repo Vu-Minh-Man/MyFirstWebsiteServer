@@ -11,7 +11,7 @@ const app = express();
 setUpRoutes(app, logger);
 setUpDatabase(logger);
 
-const server = app.listen(config.port, () =>
+const server = app.listen(config.port, config.host, () =>
   logger.info(`Listening on port ${config.port}...`)
 );
 

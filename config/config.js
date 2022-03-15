@@ -3,6 +3,7 @@ const dbCluster =
 
 export default {
   port: process.env.PORT || 8080,
+  host: '0.0.0.0';
   db: dbCluster + "/myFirstWebsite?retryWrites=true&w=majority",
   dbLogger: dbCluster + "/errors",
   secretKey: process.env.SECRETKEY || "jwtkey",
