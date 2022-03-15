@@ -29,6 +29,12 @@ router.get(
       res.send(posts);
     } else if (req.header("x-data-type") === "topic") {
       res.send(topic);
+    } else {
+      const posts = await Post.find({ topic: topic._id })
+        .populate("user", "username")
+        .sort("createdDate");
+
+      res.send({ topic, posts });
     }
   })
 );
